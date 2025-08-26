@@ -130,19 +130,31 @@
 
 # selection sort
 
+# def selection_sort(num):
+#     l=len(num)
+#     for i in range(0,l):
+#         min_idx=i
+#         for j in range(i+1,l):
+#             if num[j]<num[min_idx] :
+#                 print(num)
+#                 min_idx=j
+#         num[i],num[min_idx]=num[min_idx],num[i]
+  
 def selection_sort(num):
     l=len(num)
     for i in range(0,l):
         min_idx=i
         for j in range(i+1,l):
-            if num[j]<num[min_idx] :
-                print(num)
+            if num[j]>num[min_idx] :
+                
                 min_idx=j
         num[i],num[min_idx]=num[min_idx],num[i]
-  
+        
+    print(num)    
+ 
 a=[7,3,2,9,4]
 selection_sort(a)   
-print(a)    
+    
         
         
 
