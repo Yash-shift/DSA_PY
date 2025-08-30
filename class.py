@@ -140,24 +140,136 @@
 #                 min_idx=j
 #         num[i],num[min_idx]=num[min_idx],num[i]
   
-def selection_sort(num):
-    l=len(num)
-    for i in range(0,l):
-        min_idx=i
-        for j in range(i+1,l):
-            if num[j]>num[min_idx] :
+# def selection_sort(num):
+#     l=len(num)
+#     for i in range(0,l):
+#         min_idx=i
+#         for j in range(i+1,l):
+#             if num[j]>num[min_idx] :
                 
-                min_idx=j
-        num[i],num[min_idx]=num[min_idx],num[i]
+#                 min_idx=j
+#         num[i],num[min_idx]=num[min_idx],num[i]
         
-    print(num)    
+#     print(num)    
  
-a=[7,3,2,9,4]
-selection_sort(a)   
-    
+# a=[7,3,2,9,4]
+# selection_sort(a)  
+
+# insertion sort
+# def insertion_sort(num):
+#     n=len(num) 
+#     for i in range (1,n):
+#         key=num[i]
+#         j=i-1
+#         while j>=0 and num[j]>key:
+#             num[j+1]=num[j]
+#             j-=1
+            
+#         num[j+1] =key   
+#     print(num)
+# a=[2,3,,8,4,1]
+# insertion_sort(a)    
         
-        
+# def largest_num(num):
+#     l=len(num)
+#     largest=num[0]
+#     for i in range(0,l):
+#         if largest>num[i]:
+#             i=i+1
+#         else :
+#             largest=num[i]
+#             i=i+1    
+#     print(largest)    
+# b=[3,4,5,6,7,78,8]
+# largest_num(b)
 
-
-
+# def second_largest(num):
+#     if len(num) < 2:
+#         print("List must have at least two elements")
+#         return
     
+#     largest = second = float('-inf')  # very small number
+    
+#     for x in num:
+#         if x > largest:
+#             second = largest
+#             largest = x
+#         elif x > second and x != largest:
+#             second = x
+    
+#     if second == float('-inf'):
+#         print("No second largest element (all elements are same)")
+#     else:
+#         print("Second largest:", second)
+
+# b = [3, 4, 5, 6, 7, 8]
+# second_largest(b)
+   
+# is array sorted
+# def IsSorted(num):
+#     for i in range(len(num) - 1):   # iterate using indexes
+#         if num[i] > num[i+1]:       # check if current > next
+#             return False
+#     return True   # if no violation found, it's sorted
+
+# b = [1, 9, 3, 4, 45, 99]
+# print(IsSorted(b))  # ✅ True
+    
+    
+#right rotate
+# def rr(num):
+#     n=len(num)
+#     num=[num[-1]]+num[0:n-1]
+#     print(num) 
+    
+    
+# rr([1,2,3,4,5,6])
+# move 0 to right 
+# a=[1,0,2,3,4,0,0,7,9]
+# def moveEnd(num):
+#     n=len(num)
+#     temp=[]
+#     for i in range(0,n):
+#         if num[i]!=0:
+#             temp.append(num[i])
+#     nz=len(temp)
+#     for i in range (0,nz):
+#         num[i]=temp[i]
+#     for i in range(nz,n):
+#         num[i]=0
+#     print(num)              
+    
+# moveEnd(a)    
+  
+num1 = [1, 1, 2, 3, 4, 5, 7]
+num2 = [1, 2, 3, 6, 7, 7, 8]
+
+def merge(num1, num2):
+    n = len(num1)
+    m = len(num2)
+    i, j = 0, 0
+    result = []
+
+    while i < n and j < m:
+        if num1[i] <= num2[j]:
+            if len(result) == 0 or result[-1] != num1[i]:
+                result.append(num1[i])
+            i += 1
+        else:
+            if len(result) == 0 or result[-1] != num2[j]:
+                result.append(num2[j])
+            j += 1        
+
+    while i < n:
+        if len(result) == 0 or result[-1] != num1[i]:
+            result.append(num1[i])
+        i += 1
+
+    while j < m:
+        if len(result) == 0 or result[-1] != num2[j]:
+            result.append(num2[j])
+        j += 1
+
+    return result
+
+print(merge(num1, num2))
